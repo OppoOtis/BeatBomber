@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://brbsv0p7f1rxr"]
+
+[ext_resource type="Script" path="res://Scripts/PlayerMovement.gd" id="2_51m0j"]
+[ext_resource type="Texture2D" uid="uid://b4xxa37nprbal" path="res://Art/TempPlayer.png" id="2_vmumy"]
+
+[sub_resource type="GDScript" id="GDScript_1wabc"]
+script/source = "extends Node
+
+@onready var rb: RigidBody2D = $RigidBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[node name="PlayerManager" type="Node2D"]
+script = SubResource("GDScript_1wabc")
+
+[node name="Player" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+texture_filter = 1
+texture = ExtResource("2_vmumy")
+
+[node name="Movement" type="Node2D" parent="Player"]
+script = ExtResource("2_51m0j")
+moveDistance = 16
+moveSpeed = 120
+waitTimeBetweenMovement = 0.1
+width = 17
+height = 9
+offset = 16
