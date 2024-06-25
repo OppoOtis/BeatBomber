@@ -1,0 +1,57 @@
+[gd_scene load_steps=10 format=3 uid="uid://dshkfum8eurd"]
+
+[ext_resource type="Texture2D" uid="uid://ia31whgt8da6" path="res://Art/TempGridBorder.png" id="1_a4lac"]
+[ext_resource type="Script" path="res://Scripts/LevelEditor/GridSpawner.gd" id="1_mckie"]
+[ext_resource type="Script" path="res://Scripts/LevelEditor/CursorMovement.gd" id="2_27m3i"]
+[ext_resource type="Texture2D" uid="uid://c7auw21o023q3" path="res://Art/TempCursor.png" id="2_exlku"]
+[ext_resource type="Texture2D" uid="uid://48nqfj14se70" path="res://Art/TempGridCell.png" id="2_jv0ur"]
+[ext_resource type="Script" path="res://Scripts/LevelEditor/CameraMovement.gd" id="5_ye3eo"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u4m34"]
+texture = ExtResource("2_jv0ur")
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwv2n"]
+texture = ExtResource("2_exlku")
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_a3uqh"]
+sources/0 = SubResource("TileSetAtlasSource_u4m34")
+sources/1 = SubResource("TileSetAtlasSource_lwv2n")
+
+[node name="LevelEditor" type="Node2D"]
+
+[node name="GridSpawner" type="Node2D" parent="."]
+script = ExtResource("1_mckie")
+
+[node name="TileMap" type="TileMap" parent="GridSpawner"]
+texture_filter = 1
+tile_set = SubResource("TileSet_a3uqh")
+format = 2
+layer_0/name = "Grid"
+layer_1/name = "Cursor"
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_a4lac")
+centered = false
+offset = Vector2(-1, -1)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(8, 8)
+script = ExtResource("5_ye3eo")
+camMovementRange = Vector2i(100, 100)
+camMoveSpeed = 1
+camZoomRange = Vector2i(1, 8)
+
+[node name="Cursor" type="Node2D" parent="."]
+
+[node name="Movement" type="Node2D" parent="Cursor"]
+script = ExtResource("2_27m3i")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cursor"]
+texture_filter = 1
+texture = ExtResource("2_exlku")
+centered = false
