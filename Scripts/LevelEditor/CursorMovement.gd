@@ -14,12 +14,17 @@ var time = 0.0
 
 #cursor
 var cursor
-var cursorPosition
+var cursorPosition: Vector2i
+var oldCursorPosition: Vector2i
 var cursorBoost = 1.0
 
+#placement
+var placement
+
 func _ready():
-	positionGrid = $"../../GridSpawner/TileMap"
+	positionGrid = $"../../UnderlayGridSpawner/TileMap"
 	cursor = $".."
+	placement = $"../Placement"
 
 func _process(delta):
 	_get_input()
@@ -28,6 +33,7 @@ func _process(delta):
 				time += delta
 		else:
 			_move_cursor(1)
+			_update_old_cursor()
 			time = 0.0
 
 func _move_cursor(type):
@@ -44,12 +50,18 @@ func _move_cursor(type):
 	if(cursorPosition.y > gridSize.y-1):
 		cursorPosition.y = gridSize.y-1
 	cursor.position = Vector2(cursorPosition.x*16, cursorPosition.y*16)
-	print(cursorPosition)
+
+func _update_old_cursor():
+	if(cursorPosition != oldCursorPosition):
+			placement.cursorPosition = cursorPosition
+			oldCursorPosition = cursorPosition
+			print(cursorPosition, oldCursorPosition)
 
 func _input(event):
 	if event is InputEventMouseMotion:
 		mousePos = positionGrid.local_to_map(positionGrid.get_global_mouse_position())
 		_move_cursor(0)
+		_update_old_cursor()
 	if(Input.is_action_just_pressed("EditorCursorBoost")):
 		cursorBoost = .2
 	if(Input.is_action_just_released("EditorCursorBoost")):

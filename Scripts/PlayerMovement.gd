@@ -26,7 +26,6 @@ func _ready():
 	oldPos = Vector2i.ZERO
 	collisionMap = _make_2d_array()
 	_fill_collision_map()
-	print(collisionMap)
 	readyToMove = false
 
 func _process(delta):
