@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dshkfum8eurd"]
+[gd_scene load_steps=19 format=3 uid="uid://dshkfum8eurd"]
 
 [ext_resource type="Texture2D" uid="uid://ia31whgt8da6" path="res://Art/TempGridBorder.png" id="1_a4lac"]
 [ext_resource type="Script" path="res://Scripts/LevelEditor/GridSpawner.gd" id="1_mckie"]
@@ -10,7 +10,8 @@
 [ext_resource type="Script" path="res://Scripts/LevelEditor/Placement.gd" id="7_n6n4y"]
 [ext_resource type="Texture2D" uid="uid://oh1rhcmq6dw8" path="res://Art/TileSets/RuleTilesetTempWalls2.png" id="8_0ukdx"]
 [ext_resource type="Script" path="res://Scripts/LevelEditor/LevelData.gd" id="8_k5ods"]
-[ext_resource type="Script" path="res://Scripts/LevelEditor/TestTileMap.gd" id="9_kjihu"]
+[ext_resource type="Script" path="res://Scripts/LevelManaging/TileData.gd" id="11_noox3"]
+[ext_resource type="Script" path="res://Scripts/LevelManaging/LevelVisualizer.gd" id="11_rt1qa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u4m34"]
 texture = ExtResource("2_jv0ur")
@@ -461,8 +462,13 @@ script = ExtResource("7_n6n4y")
 [node name="LevelData" type="Node2D" parent="."]
 script = ExtResource("8_k5ods")
 
-[node name="TileMap" type="TileMap" parent="LevelData"]
+[node name="LevelVisualizer" type="Node2D" parent="LevelData"]
+script = ExtResource("11_rt1qa")
+
+[node name="Environment" type="TileMap" parent="LevelData"]
 texture_filter = 1
 tile_set = SubResource("TileSet_y1kxj")
 format = 2
-script = ExtResource("9_kjihu")
+
+[node name="TileData" type="Node2D" parent="."]
+script = ExtResource("11_noox3")

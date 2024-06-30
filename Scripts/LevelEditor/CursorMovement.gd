@@ -55,7 +55,6 @@ func _update_old_cursor():
 	if(cursorPosition != oldCursorPosition):
 			placement.cursorPosition = cursorPosition
 			oldCursorPosition = cursorPosition
-			print(cursorPosition, oldCursorPosition)
 
 func _input(event):
 	if event is InputEventMouseMotion:
