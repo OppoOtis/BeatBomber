@@ -17,14 +17,18 @@ var cursor
 var cursorPosition: Vector2i
 var oldCursorPosition: Vector2i
 var cursorBoost = 1.0
+var cursorAnchor
+var cursorStretcher
 
 #placement
 var placement
 
 func _ready():
 	positionGrid = $"../../UnderlayGridSpawner/TileMap"
-	cursor = $".."
+	cursor = $"."
 	placement = $"../Placement"
+	cursorAnchor = $"../CursorAnchor"
+	cursorStretcher = $"../CursorStretcher"
 
 func _process(delta):
 	_get_input()
@@ -50,6 +54,9 @@ func _move_cursor(type):
 	if(cursorPosition.y > gridSize.y-1):
 		cursorPosition.y = gridSize.y-1
 	cursor.position = Vector2(cursorPosition.x*16, cursorPosition.y*16)
+	cursorAnchor._move_anchor(Vector2(cursorPosition.x*16, cursorPosition.y*16))
+	cursorStretcher._move_stretcher(Vector2(cursorPosition.x*16, cursorPosition.y*16))
+	cursorStretcher._stretch()
 
 func _update_old_cursor():
 	if(cursorPosition != oldCursorPosition):

@@ -7,15 +7,17 @@ var cursorPosition: Vector2i
 var inputPosition: Vector2i
 var positionList = []
 
+#anchor and stretcher
+var cursorAnchor
+var cursorStretcher
+
 #tile data
 var selectedTileID = 0
 
-
 func _ready():
 	levelData = $"../../LevelData"
-
-#functions for updating levelData
-#like, fil cell, fill region, remove region
+	cursorAnchor = $"../CursorAnchor"
+	cursorStretcher = $"../CursorStretcher"
 
 func _fill_cell():
 	levelData._fill_cell(cursorPosition.x,cursorPosition.y, selectedTileID, 0)
@@ -35,13 +37,17 @@ func _fill_position_list():
 		for y in range(inputPosition.y, cursorPosition.y + y_step, y_step):
 			positionList.append(Vector2i(x, y))
 
-
 func _input(event):
 	if(Input.is_action_just_pressed("EditorPlace")):
 		inputPosition = cursorPosition
 		print("click")
+		cursorAnchor.locked = true
+		cursorStretcher.locked = true
 	if(Input.is_action_just_released("EditorPlace")):
 		print("un click")
+		cursorAnchor.locked = false
+		cursorStretcher._stretch()
+		cursorStretcher.locked = false
 		if(cursorPosition == inputPosition):
 			_fill_cell()
 		else:

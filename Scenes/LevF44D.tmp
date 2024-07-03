@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dshkfum8eurd"]
+[gd_scene load_steps=17 format=3 uid="uid://dshkfum8eurd"]
 
 [ext_resource type="Texture2D" uid="uid://ia31whgt8da6" path="res://Art/TempGridBorder.png" id="1_a4lac"]
 [ext_resource type="Script" path="res://Scripts/LevelEditor/GridSpawner.gd" id="1_mckie"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://Scripts/LevelEditor/CursorStretcher.gd" id="7_ghb85"]
 [ext_resource type="Script" path="res://Scripts/LevelEditor/CursorAnchor.gd" id="7_jphji"]
 [ext_resource type="Script" path="res://Scripts/LevelEditor/Placement.gd" id="7_n6n4y"]
-[ext_resource type="Texture2D" uid="uid://yg2dkb1de6v" path="res://Art/LevelEditor/Cursor/CursorStretcher.png" id="8_5bje6"]
 [ext_resource type="Script" path="res://Scripts/LevelEditor/LevelData.gd" id="8_k5ods"]
 [ext_resource type="TileSet" uid="uid://byq5cpm2co6ts" path="res://Art/TileSets/TestTileset.tres" id="10_knrlm"]
 [ext_resource type="Script" path="res://Scripts/LevelManaging/TileData.gd" id="11_noox3"]
@@ -79,13 +78,11 @@ centered = false
 texture_filter = 1
 offset_right = 16.0
 offset_bottom = 16.0
-texture = ExtResource("8_5bje6")
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
+texture = ExtResource("2_exlku")
+patch_margin_left = 3
+patch_margin_top = 3
+patch_margin_right = 3
+patch_margin_bottom = 3
 script = ExtResource("7_ghb85")
 
 [node name="Placement" type="Node2D" parent="Cursor"]
