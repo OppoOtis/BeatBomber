@@ -6,12 +6,12 @@ var levelVisualizer
 
 func _ready():
 	levelVisualizer = $LevelVisualizer
-	_make_5d_array()
+	_prepare_level_data()
 
-func _make_5d_array():
-	for i in range(100):
+func _prepare_level_data():
+	for i in range(10):
 		var row = []
-		for j in range(100):
+		for j in range(10):
 			row.append(Vector3i())
 		levelData.append(row)
 
@@ -38,3 +38,14 @@ func _fill_region(positionList,value):
 		levelData[position.x][position.y] = vec
 	
 	levelVisualizer._draw_region(positionList,value)
+
+func _load_full_level():
+	for x in range(levelData.size()):
+		for y in range(levelData[x].size()):
+			var vec = levelData[x][y]
+			if vec.x != 0:
+				_fill_cell(x, y, vec.x, 0)
+			if vec.y != 0:
+				_fill_cell(x, y, vec.y, 1)
+			if vec.z != 0:
+				_fill_cell(x, y, vec.z, 2)

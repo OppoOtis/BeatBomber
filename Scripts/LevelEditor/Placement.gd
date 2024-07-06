@@ -12,7 +12,7 @@ var cursorAnchor
 var cursorStretcher
 
 #tile data
-var selectedTileID = 0
+var selectedTileID = 1
 
 func _ready():
 	levelData = $"../../LevelData"
@@ -21,13 +21,11 @@ func _ready():
 
 func _fill_cell():
 	levelData._fill_cell(cursorPosition.x,cursorPosition.y, selectedTileID, 0)
-	print("filled Cell")
 
 func _fill_region():
 	_fill_position_list()
 	levelData._fill_region(positionList, selectedTileID)
 	positionList.clear()
-	print("filled region")
 
 func _fill_position_list():
 	var x_step = 1 if cursorPosition.x > inputPosition.x else -1
@@ -40,11 +38,9 @@ func _fill_position_list():
 func _input(event):
 	if(Input.is_action_just_pressed("EditorPlace")):
 		inputPosition = cursorPosition
-		print("click")
 		cursorAnchor.locked = true
 		cursorStretcher.locked = true
 	if(Input.is_action_just_released("EditorPlace")):
-		print("un click")
 		cursorAnchor.locked = false
 		cursorStretcher._stretch()
 		cursorStretcher.locked = false
