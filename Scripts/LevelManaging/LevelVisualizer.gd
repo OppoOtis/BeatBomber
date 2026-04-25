@@ -34,3 +34,6 @@ func _draw_region(positionList,value):
 	else:
 		for position in positionList:
 			environmentTilemap.set_cell(0,position,tile["tileID"],Vector2i(0,0))
+
+func _clear_level():
+	environmentTilemap.clear()

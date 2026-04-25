@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dc2poqlggtc0u"]
+
+[ext_resource type="Script" path="res://Scripts/UI/LevelIcon.gd" id="1_ntvld"]
+
+[sub_resource type="Gradient" id="Gradient_8ms5w"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_djkwq"]
+gradient = SubResource("Gradient_8ms5w")
+
+[node name="LevelIcon" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 64.0
+offset_bottom = 64.0
+pivot_offset = Vector2(32, 32)
+script = ExtResource("1_ntvld")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_top = -23.0
+offset_right = 64.0
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = SubResource("GradientTexture1D_djkwq")

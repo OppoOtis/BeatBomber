@@ -52,7 +52,7 @@ func _fill_collision_map():
 				if(y % 2 == 0):
 					collisionMap[x][y] = 1
 				else:
-					collisionMap[x][y] = 0
+					collisionMap[x][y] = 1
 
 func _move_target():
 	newPos = currPos

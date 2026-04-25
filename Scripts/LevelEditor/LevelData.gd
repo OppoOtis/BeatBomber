@@ -40,6 +40,7 @@ func _fill_region(positionList,value):
 	levelVisualizer._draw_region(positionList,value)
 
 func _load_full_level():
+	levelVisualizer._clear_level()
 	for x in range(levelData.size()):
 		for y in range(levelData[x].size()):
 			var vec = levelData[x][y]

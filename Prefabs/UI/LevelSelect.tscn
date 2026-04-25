@@ -1,0 +1,82 @@
+[gd_scene load_steps=4 format=3 uid="uid://3w635g321tvm"]
+
+[ext_resource type="Script" uid="uid://cn12xgikt5e2g" path="res://Prefabs/UI/LevelSelect.gd" id="1_4y4fr"]
+[ext_resource type="PackedScene" uid="uid://dc2poqlggtc0u" path="res://Prefabs/UI/LevelIcon.tscn" id="1_c5lno"]
+[ext_resource type="Texture2D" uid="uid://c7auw21o023q3" path="res://Art/TempCursor.png" id="2_8j86k"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_4y4fr")
+
+[node name="LevelIcon" parent="." instance=ExtResource("1_c5lno")]
+offset_left = 56.0
+offset_top = 260.0
+offset_right = 120.0
+offset_bottom = 324.0
+
+[node name="LevelIcon2" parent="." instance=ExtResource("1_c5lno")]
+offset_left = 153.0
+offset_top = 260.0
+offset_right = 217.0
+offset_bottom = 324.0
+worldIndex = 2
+
+[node name="LevelIcon3" parent="." instance=ExtResource("1_c5lno")]
+offset_left = 251.0
+offset_top = 262.0
+offset_right = 315.0
+offset_bottom = 326.0
+worldIndex = 3
+
+[node name="LevelIcon4" parent="." instance=ExtResource("1_c5lno")]
+offset_left = 357.0
+offset_top = 262.0
+offset_right = 421.0
+offset_bottom = 326.0
+worldIndex = 4
+
+[node name="LevelIcon5" parent="." instance=ExtResource("1_c5lno")]
+offset_left = 465.0
+offset_top = 259.0
+offset_right = 529.0
+offset_bottom = 323.0
+worldIndex = 5
+
+[node name="LevelIcon6" parent="." instance=ExtResource("1_c5lno")]
+offset_left = 571.0
+offset_top = 264.0
+offset_right = 635.0
+offset_bottom = 328.0
+worldIndex = 6
+
+[node name="LevelIcon7" parent="." instance=ExtResource("1_c5lno")]
+offset_left = 665.0
+offset_top = 264.0
+offset_right = 729.0
+offset_bottom = 328.0
+worldIndex = 7
+
+[node name="LevelIcon8" parent="." instance=ExtResource("1_c5lno")]
+offset_left = 768.0
+offset_top = 269.0
+offset_right = 832.0
+offset_bottom = 333.0
+worldIndex = 8
+
+[node name="LevelIcon9" parent="." instance=ExtResource("1_c5lno")]
+offset_left = 879.0
+offset_top = 261.0
+offset_right = 943.0
+offset_bottom = 325.0
+worldIndex = 9
+
+[node name="PlayerIcon" type="TextureRect" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+pivot_offset = Vector2(32, 32)
+texture = ExtResource("2_8j86k")
